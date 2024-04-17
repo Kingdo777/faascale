@@ -12,3 +12,13 @@ Run the following command to merge the dataset:
 ```bash
 python3 merge.py
 ```
+
+### 4. Analyze the dataset
+Run the following command to get the number of cold starts under horizontal and vertical scaling scenarios:
+```bash
+python3 cold_start.py
+```
+Run the following command to get the number of MicroVMs required under horizontal and vertical scaling scenarios:
+```bash
+python3 vm_count.py
+```
