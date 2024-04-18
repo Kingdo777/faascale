@@ -1,0 +1,208 @@
+{
+  "daemon": {
+    "log_level": "Warning",
+    "base_path": "",
+    "kernels": {
+      "faasnap": "",
+      "faascale": "",
+      "balloon": ""
+    },
+    "images": {
+      "debian": ""
+    },
+    "executables": {
+      "vanilla": "",
+      "faascale": ""
+    },
+    "redis_host": "",
+    "redis_passwd": "",
+    "faascale_mem_config": {
+      "pre_alloc_mem": false,
+      "pre_tdp_fault": false,
+      "stats_polling_interval_s": 0
+    }
+  },
+  "home_dir": "",
+  "host": "http://<ip>:8080",
+  "trace_api": "http://<ip>:9411/api/v2/trace",
+  "test_dir": "",
+  "repeat": 1,
+  "vcpu": 2,
+  "mem": 2048,
+  "setting": [
+    "vanilla",
+    "vanilla-cache",
+    "cold",
+    "balloon",
+    "faascale"
+  ],
+  "function": [
+    "hello",
+    "mmap",
+    "ffmpeg",
+    "json",
+    "image",
+    "matmul",
+    "pyaes",
+    "chameleon",
+    "compression",
+    "recognition",
+    "pagerank"
+  ],
+  "settings": {
+    "vanilla": {
+      "name": "vanilla",
+      "record_regions": {
+        "record_regions": false
+      },
+      "patch_state": {
+        "dig_hole": false,
+        "load_cache": false,
+        "drop_cache": true
+      },
+      "invocation": {
+        "use_mem_file": true,
+        "overlay_regions": false,
+        "use_ws_file": false
+      },
+      "kernel": "faasnap"
+    },
+    "vanilla-cache": {
+      "name": "vanilla-cache",
+      "patch_state": {
+        "load_cache": true,
+        "drop_cache": false
+      },
+      "invocation": {
+        "use_mem_file": true
+      },
+      "kernel": "faasnap"
+    },
+    "warm": {
+      "name": "warm",
+      "kernel": "faasnap"
+    },
+    "cold": {
+      "name": "cold",
+      "kernel": "faasnap"
+    },
+    "balloon": {
+      "name": "balloon",
+      "kernel": "faasnap"
+    },
+    "faascale": {
+      "name": "faascale",
+      "kernel": "faasnap"
+    }
+  },
+  "functions": {
+    "hello": {
+      "id": "hello",
+      "name": "hello",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 1,
+      "mem": 128,
+      "params": "{\"script\":\"\"}"
+    },
+    "mmap": {
+      "id": "mmap",
+      "name": "mmap",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 2,
+      "mem": 1024,
+      "params": "{\"size\":512}"
+    },
+    "read": {
+      "id": "read",
+      "name": "read",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 2,
+      "mem": 1024,
+      "params": "{\"size\":\"128\"}"
+    },
+    "ffmpeg": {
+      "id": "ffmpeg",
+      "name": "ffmpeg",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 2,
+      "mem": 1024,
+      "params": "{\"input_object_key\":\"input1080p.mp4\", \"output_object_key\":\"output.mp4\"}"
+    },
+    "json": {
+      "id": "json",
+      "name": "json",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 1,
+      "mem": 128,
+      "params": "{\"input_object_key\":\"IndiaGDP.json\"}"
+    },
+    "image": {
+      "id": "image",
+      "name": "image",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 1,
+      "mem": 256,
+      "params": "{\"input_object_key\":\"100kb.jpg\", \"output_object_key_prefix\": \"outputimg-\"}"
+    },
+    "matmul": {
+      "id": "matmul",
+      "name": "matmul",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 2,
+      "mem": 512,
+      "params": "{\"n\":\"1100\"}"
+    },
+    "pyaes": {
+      "id": "pyaes",
+      "name": "pyaes",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 1,
+      "mem": 128,
+      "params": "{\"length_of_message\":\"20000\", \"num_of_iterations\":\"1\"}"
+    },
+    "chameleon": {
+      "id": "chameleon",
+      "name": "chameleon",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 1,
+      "mem": 256,
+      "params": "{\"num_of_rows\":\"100\", \"num_of_cols\":\"300\"}"
+    },
+    "compression": {
+      "id": "compression",
+      "name": "compression",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 1,
+      "mem": 128,
+      "params": "{\"input_object_key\":\"IndiaGDP.json\", \"output_object_key\":\"compressed.zip\"}"
+    },
+    "recognition": {
+      "id": "recognition",
+      "name": "recognition",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 2,
+      "mem": 1024,
+      "params": "{\"model_object_key\":\"resnet50-19c8e357.pth\", \"input_object_key\":\"100kb.jpg\", \"output_object_key_prefix\": \"outputimg-\"}"
+    },
+    "pagerank": {
+      "id": "pagerank",
+      "name": "pagerank",
+      "image": "debian",
+      "kernel": "faasnap",
+      "vcpu": 2,
+      "mem": 512,
+      "params": "{\"size\":\"90000\"}"
+    }
+  }
+}

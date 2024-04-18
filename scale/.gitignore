@@ -1,0 +1,4 @@
+logs/
+test-scale-my.json
+firecracker.sock
+firecracker-configs/

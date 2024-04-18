@@ -1,0 +1,29 @@
+{
+  "log_level": "Warning",
+  "kernels": {
+    "qemu": "",
+    "faascale": "",
+    "firecracker": ""
+  },
+  "images": {
+    "debian": ""
+  },
+  "executables": {
+    "qemu": "",
+    "firecracker": "",
+    "faascale": ""
+  },
+  "faascale_mem_config": {
+    "pre_alloc_mem": false,
+    "pre_tdp_fault": false,
+    "stats_polling_interval_s": 0
+  },
+  "repeat": 1,
+  "home_dir": ".",
+  "settings": [
+    "qemu-balloon",
+    "qemu-virtio_mem",
+    "firecracker-balloon",
+    "firecracker-faascale"
+  ]
+}
